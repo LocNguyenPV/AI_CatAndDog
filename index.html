@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel="icon" type="image/png" href="/logo.png"/>
+    <title>Index</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='site.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='robot.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.1.0/dist/tf.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Upload
+            <small>with preview & detect</small>
+        </h1>
+        <div class="avatar-upload">
+            <div class="avatar-edit">
+                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg">
+                </input>
+                <label for="imageUpload">
+                </label>
+                
+            </div>
+            <div class="avatar-preview">
+                <img id="imagePreview" src="http://i.pravatar.cc/500?img=7">
+                </img>
+            </img>
+            <button id="btnPredict" class="btn second">Analyze</button>
+        </div>
+    </div>
+  
+    <div class="cute-robot-v1">
+        <div class="circle-bg">
+            <div class="robot-ear left"></div>
+            <div class="robot-head">
+                
+                <div class="robot-face">
+                    <div class="eyes left"></div>
+                    <div class="eyes right"></div>
+                    <div class="mouth"></div>
+                </div>
+            </div>
+            
+            <div class="robot-ear right">
+                
+            </div>
+            <div class="robot-body"></div>
+        </div>
+        <div class="talk-bubble tri-right left-in">
+            <div class="talktext">
+              <p class="typing" id="txtPredict"></p>
+            </div>
+          </div>
+    </div>
+    <script src='main.js'></script>
+</body>
+</html>
