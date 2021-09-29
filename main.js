@@ -19,7 +19,7 @@ $("#imageUpload").change(function () {
 async function delay(ms) {
     // return await for better async stack trace support in case of errors.
     return await new Promise(resolve => setTimeout(resolve, ms));
-  }
+}
 $("#btnPredict").click(function () {
     $("#txtPredict").text("Analyzing...");
     let image = $("#imagePreview").get(0);
@@ -28,15 +28,18 @@ $("#btnPredict").click(function () {
         .toFloat()
         .expandDims();
     (async function () {
-        if(!model){
+        if (!model) {
             model = await tf.loadLayersModel("/transfer/model.json");
             console.log(model)
         }
-        let predictions = await model.predict(tensor).data();
+        let predictions = await model.predict(tensor);
+        predictions.print();
         let animal = "Cat";
-        if (predictions[0].toFixed() > 0.5) {
+        if (predictions.dataSync()[0].toFixed() > 0.5) {
             animal = "Dog";
         }
+        
+        // console.log(tmp)
         await delay(2000);
         $("#txtPredict").text("Hello " + animal);
     })();
