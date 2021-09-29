@@ -1,9 +1,4 @@
 let model;
-// More pre-processing to be added here later
-(async function () {
-    model = await tf.loadLayersModel("/transfer/model.json");
-    console.log(model)
-})();
 
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -39,10 +34,9 @@ $("#btnPredict").click(function () {
         }
         let predictions = await model.predict(tensor).data();
         let animal = "Cat";
-        if (predictions[0] > 0.5) {
+        if (predictions[0].toFixed() > 0.5) {
             animal = "Dog";
         }
-        console.log(predictions[0]);
         await delay(2000);
         $("#txtPredict").text("Hello " + animal);
     })();
