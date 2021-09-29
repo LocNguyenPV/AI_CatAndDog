@@ -40,7 +40,7 @@ $("#btnPredict").click(function () {
         }
         
         // console.log(tmp)
-        await delay(2000);
+        // await delay(2000);
         $("#txtPredict").text("Hello " + animal);
     })();
 })
